@@ -11,6 +11,9 @@ print num
 key = collections.deque(letters)
 key.rotate(num)
 
-print letters
-print "Shift by " + key[0]
-print key
+# print letters
+strkey = ''.join(key)
+file = open("Key", "w")
+file.write(strkey)
+file.close()
+print "Key is: "+ strkey + ". Saved to file!"
