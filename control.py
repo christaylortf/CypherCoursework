@@ -1,18 +1,31 @@
 import sys
 from to_hex import *
-mode = sys.argv[1]
+from sub1 import *
+
+print "Encryption/Decryption system by Chris Taylor (12005101)"
+mode = raw_input("Would you like to encrypt or decrypt (e/d)?\n ")
+freeText = raw_input("What is the string?\n")
 
 currentCypher = ""
 
 if mode == "e":
-	print "== Encrypt Mode =="
-	print "Doing Encryption... 0%"	
-	currentCypher = to_hex(sys.argv[2])
-	print "Current Cypher is: " + currentCypher + " 25%"
+	print "\n== Encrypt Mode =="
+	print "Doing Encryption..."	
+	currentCypher = to_hex(freeText)
+	print currentCypher
+	currentCypher = sub1_e(currentCypher)
+	print currentCypher
+
+	print "\n Your Encrypted Message is: \n " + currentCypher + "\n"
 elif mode == "d":
-	print "== Decrypt Mode =="
-	print "Doing Decryption 0%"
-	currentCypher = from_hex(sys.argv[2])
-	print "Current Cypher is: "+ currentCypher + " 25%"
+	print "\n== Decrypt Mode =="
+	print "Doing Decryption..."
+	currentCypher = freeText
+	print "Current Cypher is: \n" + currentCypher
+	currentCypher = sub1_d(currentCypher)
+	print currentCypher
+	currentCypher = from_hex(currentCypher)
+	print currentCypher
 else:
 	print "Please select a valid mode (e/d)"
+
